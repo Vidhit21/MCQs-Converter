@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Converter</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/animate.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Google -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar p-0 fixed-top navbar-expand-lg" style="background-color: #024caa; min-height: 50px; line-height: 50px;">
+      <div class="container">
+        <a class="navbar-brand" href="#" style="color: #dbd3d3">
+          MCQs Converter
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href=""
+                data-scroll-nav="0"
+                style="color: #dbd3d3"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href=""
+                data-scroll-nav="1"
+                style="color: #dbd3d3"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href=""
+                data-scroll-nav="2"
+                style="color: #dbd3d3"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href=""
+                data-scroll-nav="3"
+                style="color: #dbd3d3"
+                >Main Functions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href=""
+                data-scroll-nav="4"
+                style="color: #dbd3d3"
+                >Team</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href=""
+                data-scroll-nav="5"
+                style="color: #dbd3d3"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-------Banner Start------->
+    <section
+      class="banner"
+      data-scroll-index="0"
+      style="background-color: #dbd3d3"
+    >
+      <div class="banner-overlay">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-12">
+              <div class="banner-text">
+                <h2 class="white">Transform MCQs Effortlessly</h2>
+                <h6 class="white">
+                  Convert your MCQs to Word documents in seconds.
+                </h6>
+                <p class="banner-text white">
+                  Welcome to MCQs Converter, the ultimate tool for educators and
+                  students. Easily input your questions, choose your template,
+                  and download your document instantly!
+                </p>
+                <!-- <a href="" data-scroll-nav="3" class="btn btn-primary">Get Started</a> -->
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <!-- <img src="images/iphone-screen.png" class="img-fluid wow fadeInUp" alt="App Screenshot"/> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="svg-wave">
+        <img
+        class="svg-hero"
+        src="{{ url_for('static', filename='images/applight-wave.svg') }}"
+        alt="Wave Decoration"
+      />
+      
+      </span>
+    </section>
+    <!-------Banner End------->
+
+    <!-------About Start------->
+    <section class="about section-padding prelative" data-scroll-index="1">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sectioner-header text-center">
+              <h3>About MCQ Converter</h3>
+              <span class="line"></span>
+              <p>
+                MCQ Converter is designed to simplify the process of creating
+                and managing multiple-choice questions. With our user-friendly
+                interface, you can quickly transform your MCQs into professional
+                Word documents.
+              </p>
+            </div>
+            <div class="section-content text-center">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                    <i class="fa fa-life-ring" aria-hidden="true"></i>
+                    <h5>24/7 Support</h5>
+                    <p>
+                      Our dedicated support team is here to assist you whenever
+                      you need help, ensuring a smooth experience.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                    <h5>Cross Platform</h5>
+                    <p>
+                      Access our tool on any device, be it mobile, tablet, or
+                      desktop, for maximum convenience.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="icon-box wow fadeInUp" data-wow-delay="0.6s">
+                    <i class="fa fa-bolt" aria-hidden="true"></i>
+                    <h5>Fast Conversion</h5>
+                    <p>
+                      Transform your MCQs into Word documents in just a few
+                      clicks, saving you time and effort.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- <a href="#main-functions" class="about-btn">Learn More</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-------About End------->
+
+    <!-------Features Start------->
+    <section class="feature section-padding" data-scroll-index="2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sectioner-header text-center">
+              <h3>Features</h3>
+              <span class="line"></span>
+              <p>
+                Our MCQ to Word Converter is equipped with several powerful
+                features designed to enhance your experience and productivity.
+              </p>
+            </div>
+            <div class="section-content text-center">
+              <div class="row">
+                <div class="col-md-4 col-sm-12">
+                  <div
+                    class="media single-feature wow fadeInUp"
+                    data-wow-delay="0.2s"
+                  >
+                    <div class="media-body text-right media-right-margin">
+                      <h5>Fast Processing</h5>
+                      <p>
+                        Convert your MCQs to Word documents in seconds, allowing
+                        you to focus on what matters most—creating content.
+                      </p>
+                    </div>
+                    <div class="media-right icon-border">
+                      <span class="fa fa-bolt" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <div
+                    class="media single-feature wow fadeInUp"
+                    data-wow-delay="0.4s"
+                  >
+                    <div class="media-body text-right media-right-margin">
+                      <h5>User-Friendly Interface</h5>
+                      <p>
+                        Our intuitive design ensures that you can navigate and
+                        use the converter effortlessly, no matter your tech
+                        skills.
+                      </p>
+                    </div>
+                    <div class="media-right icon-border">
+                      <span class="fa fa-desktop" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <div
+                    class="media single-feature wow fadeInUp"
+                    data-wow-delay="0.6s"
+                  >
+                    <div class="media-body text-right media-right-margin">
+                      <h5>Customizable Templates</h5>
+                      <p>
+                        Choose from a variety of templates to suit your
+                        formatting needs and create professional-looking
+                        documents.
+                      </p>
+                    </div>
+                    <div class="media-right icon-border">
+                      <span class="fa fa-file-alt" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 d-none d-md-block d-lg-block">
+                  <div class="feature-mobile">
+                    <!-- <img src="images/iphone-screen-with-shadow.png" class="img-fluid wow fadeInUp"/> -->
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div
+                    class="media single-feature wow fadeInUp"
+                    data-wow-delay="0.2s"
+                  >
+                    <div class="media-left icon-border media-right-margin">
+                      <span class="fa fa-sync-alt" aria-hidden="true"></span>
+                    </div>
+                    <div class="media-body text-left">
+                      <h5>Regular Updates</h5>
+                      <p>
+                        Stay up to date with new features and improvements as we
+                        continuously enhance the converter.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="media single-feature wow fadeInUp"
+                    data-wow-delay="0.4s"
+                  >
+                    <div class="media-left icon-border media-right-margin">
+                      <span class="fa fa-lock" aria-hidden="true"></span>
+                    </div>
+                    <div class="media-body text-left">
+                      <h5>Secure and Reliable</h5>
+                      <p>
+                        Your data is safe with us. We prioritize your privacy
+                        and ensure secure processing of your information.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="media single-feature wow fadeInUp"
+                    data-wow-delay="0.6s"
+                  >
+                    <div class="media-left icon-border media-right-margin">
+                      <span class="fa fa-hdd" aria-hidden="true"></span>
+                    </div>
+                    <div class="media-body text-left">
+                      <h5>Unlimited Storage</h5>
+                      <p>
+                        Store all your MCQs and converted documents without any
+                        limitations, ensuring easy access whenever you need
+                        them.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-------Features End------->
+
+    <!-------Main Function Start------->
+    <section class="testimonial section-padding" data-scroll-index="3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="sectioner-header text-center white">
+              <h3>Main function</h3>
+              <span class="line"></span>
+
+              <form action="/" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="text_content">Enter MCQ Text Content</label>
+                  <textarea
+                    class="form-control"
+                    id="text_content"
+                    name="text_content"
+                    rows="8"
+                    placeholder="Enter your MCQ questions here..."
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="text_files">Or Upload Text Files</label>
+                  <input
+                    type="file"
+                    multiple
+                    class="form-control-file"
+                    id="file_input"
+                    name="text_files"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="template_size">Select Template Size</label>
+                  <select
+                    class="form-control"
+                    id="template_size"
+                    name="template_size"
+                  >
+                    <option value="25">25 Questions</option>
+                    <option value="50">50 Questions</option>
+                    <option value="100">100 Questions</option>
+                    <option value="125">125 Questions</option>
+                    <option value="150">150 Questions</option>
+                    <option value="200">200 Questions</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Convert to Word
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-------Main Fuction End------->
+
+    <!-------Team Start------->
+    <section class="team section-padding" data-scroll-index="4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sectioner-header text-center">
+              <h3>Our Team</h3>
+              <span class="line"></span>
+              <p>
+                Sed quis nisi nisi. Proin consectetur porttitor dui sit amet
+                viverra. Fusce sit amet lorem faucibus, vestibulum ante in,
+                pharetra ante.
+              </p>
+            </div>
+            <div class="section-content text-center">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="team-detail wow bounce" data-wow-delay="0.2s">
+                    <img src="{{ url_for('static', filename = 'images/user3.jpg')}}" class="img-fluid" />
+                    <h4>Megh Shah</h4>
+                    <p>Co-funder</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="team-detail wow bounce" data-wow-delay="0.4s">
+                    <img src="{{ url_for('static', filename = 'images/user2.jpg')}}" class="img-fluid" />
+                    <h4>Vidhit Patel</h4>
+                    <p>Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-------Team End------->
+
+    <!-------Contact Start------->
+    <section class="contact section-padding" data-scroll-index="5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sectioner-header text-center">
+              <h3>Contact Us</h3>
+              <span class="line"></span>
+              <p>
+                Feel free to reach out to us. We are here to assist you with any
+                queries or concerns you may have.
+              </p>
+            </div>
+            <div class="section-content">
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                  <form id="contact_form" action="">
+                    <div class="row">
+                      <div class="col">
+                        <input
+                          type="text"
+                          id="your_name"
+                          class="form-input w-100"
+                          name="full-name"
+                          placeholder="Full Name"
+                          required
+                        />
+                      </div>
+                      <div class="col">
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-input w-100"
+                          name="email"
+                          placeholder="Email"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <input
+                      type="text"
+                      id="subject"
+                      class="form-input w-100"
+                      name="subject"
+                      placeholder="Subject"
+                    />
+                    <textarea
+                      class="form-input w-100"
+                      id="message"
+                      placeholder="Message"
+                      name="message"
+                    ></textarea>
+                    <button
+                      class="btn-grad w-100 text-uppercase"
+                      type="submit"
+                      name="button"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <div class="contact-info white">
+                    <div class="contact-item media">
+                      <i
+                        class="fa fa-map-marker-alt media-left media-right-margin"
+                      ></i>
+                      <div class="media-body">
+                        <p class="text-uppercase">Address</p>
+                        <p class="text-uppercase">Gujarat, India</p>
+                      </div>
+                    </div>
+                    <div class="contact-item media">
+                      <i class="fa fa-mobile media-left media-right-margin"></i>
+                      <div class="media-body">
+                        <p class="text-uppercase">Phone</p>
+                        <p class="text-uppercase">
+                          <a class="text-white" href="tel:+15173977100"
+                            >009900990099</a
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <div class="contact-item media">
+                      <i
+                        class="fa fa-envelope media-left media-right-margin"
+                      ></i>
+                      <div class="media-body">
+                        <p class="text-uppercase">E-mail</p>
+                        <p class="text-uppercase">
+                          <a
+                            class="text-white"
+                            href="mailto:pvidhit21@gmail.com"
+                            >pvidhit21@gmail.com</a
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <div class="contact-item media">
+                      <i class="fa fa-clock media-left media-right-margin"></i>
+                      <div class="media-body">
+                        <p class="text-uppercase">Working Hours</p>
+                        <p class="text-uppercase">Mon-Fri 9:00 AM to 5:00 PM</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-------Contact End------->
+
+    <footer class="footer-copy">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <p>
+              2024 &copy; QuickFixers. All rights reserved. | Contact:
+              <a href="mailto:pvidhit21@gmail.com">pvidhit21@gmail.com</a> |
+              Location: Gujarat, India
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!-- scrollIt js -->
+    <!-- <script src="js/scrollIt.min.js"></script>
+    <script src="js/wow.min.js"></script> -->
+    <script src="{{ url_for('static', filename='js/scrollIt.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+
+    <script>
+      wow = new WOW();
+      wow.init();
+      $(document).ready(function (e) {
+        $("#video-icon").on("click", function (e) {
+          e.preventDefault();
+          $(".video-popup").css("display", "flex");
+          $(".iframe-src").slideDown();
+        });
+        $(".video-popup").on("click", function (e) {
+          var $target = e.target.nodeName;
+          var video_src = $(this).find("iframe").attr("src");
+          if ($target != "IFRAME") {
+            $(".video-popup").fadeOut();
+            $(".iframe-src").slideUp();
+            $(".video-popup iframe").attr("src", " ");
+            $(".video-popup iframe").attr("src", video_src);
+          }
+        });
+
+        $(".slider").bxSlider({
+          pager: false,
+        });
+      });
+
+      $(window).on("scroll", function () {
+        var bodyScroll = $(window).scrollTop(),
+          navbar = $(".navbar");
+
+        if (bodyScroll > 50) {
+          $(".navbar-logo img").attr("src", "images/logo-black.png");
+          navbar.addClass("nav-scroll");
+        } else {
+          $(".navbar-logo img").attr("src", "images/logo.png");
+          navbar.removeClass("nav-scroll");
+        }
+      });
+      $(window).on("load", function () {
+        var bodyScroll = $(window).scrollTop(),
+          navbar = $(".navbar");
+
+        if (bodyScroll > 50) {
+          $(".navbar-logo img").attr("src", "images/logo-black.png");
+          navbar.addClass("nav-scroll");
+        } else {
+          $(".navbar-logo img").attr("src", "images/logo-white.png");
+          navbar.removeClass("nav-scroll");
+        }
+
+        $.scrollIt({
+          easing: "swing", // the easing function for animation
+          scrollTime: 900, // how long (in ms) the animation takes
+          activeClass: "active", // class given to the active nav element
+          onPageChange: null, // function(pageIndex) that is called when page is changed
+          topOffset: -63,
+        });
+      });
+    </script>
+  </body>
+</html>

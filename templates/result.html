@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Word Converter Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Text to Word Converter Result</h1>
+        <div class="result-container">
+            {% if incorrect_options_lines %}
+                <h2 class="text-danger">Questions with Incorrectly Marked Options:</h2>
+                <ul class="list-group">
+                    {% for line_number in incorrect_options_lines %}
+                        <li class="list-group-item list-group-item-warning">Line {{ line_number }}: Correct option not marked</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-success">All options are correctly marked.</p>
+            {% endif %}
+        </div>
+
+        <!-- Download links for multiple files -->
+        <h2 class="text-center mt-4">Download Generated Files:</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="/download/{{ output_file }}" class="btn btn-primary">Download {{ output_file }}</a>
+            </li>
+            {% for file_name in file_names %}
+                <li class="list-group-item">
+                    <a href="/download/{{ file_name }}" class="btn btn-secondary">Download {{ file_name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-secondary">Go Back to MCQ Editor</a>
+        </div>
+    </div>
+</body>
+</html>
