@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Word Converter Result</title>
+</head>
+<body>
+    <h1>Text to Word Converter Result</h1>
+    {% if incorrect_options_lines %}
+        <h2>Questions with Incorrectly Marked Options:</h2>
+        <ul>
+            {% for line_number in incorrect_options_lines %}
+                <li>Line {{ line_number }}: Correct option not marked</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>All options are correctly marked.</p>
+    {% endif %}
+
+    <!-- Add a download button for the converted Word file -->
+    <form method="GET" action="/download">
+        <button type="submit">Download Converted File</button>
+    </form>
+</body>
+</html>

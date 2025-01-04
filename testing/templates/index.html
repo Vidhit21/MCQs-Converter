@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/ace.js') }}" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <h1>MCQ Editor</h1>
+    <form action="/" method="post">
+        <div id="editor"></div>
+        <textarea name="text_content" id="text_content" style="display:none;"></textarea>
+        <select name="template_size">
+            <option value="25">25 Questions</option>
+            <option value="50">50 Questions</option>
+            <option value="100">100 Questions</option>
+            <option value="150">150 Questions</option>
+        </select>
+        <button type="submit">Generate Document</button>
+    </form>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/plain_text");
+        editor.session.setUseWrapMode(true);
+        editor.setShowPrintMargin(false);
+        editor.setShowFoldWidgets(false);
+
+        // Sync the Ace editor content with the textarea
+        document.querySelector('form').addEventListener('submit', function () {
+            document.getElementById('text_content').value = editor.getValue();
+        });
+    </script>
+</body>
+</html>
