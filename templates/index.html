@@ -8,91 +8,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
     <script src="{{ url_for('static', filename='js/ace.js') }}" type="text/javascript" charset="utf-8"></script>
     <style>
-        /* General Styling */
         body {
-            background: linear-gradient(135deg, #007bff, #6c757d);
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Container Styling */
-        .container {
-            max-width: 720px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            color: #343a40;
-        }
-
-        /* Header */
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 700;
-            color: #007bff;
-        }
-
-        /* Editor */
-        #editor {
-            height: 350px;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             background-color: #f8f9fa;
         }
-
-        /* Form Styling */
-        .form-group label {
-            font-weight: 600;
-            color: #007bff;
-        }
-
-        .form-control, .form-control-file {
-            border-radius: 8px;
-            border: 1px solid #ced4da;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus, .form-control-file:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-        }
-
-        select.form-control {
-            background-color: #ffffff;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            color: #ffffff;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
+        h1 {
             margin-top: 20px;
-            color: #ffffff;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        #editor {
+            height: 300px; /* Adjust height as needed */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>MCQ Editor</h1>
+        <h1 class="text-center">MCQ Editor</h1>
         <form action="/" method="post" enctype="multipart/form-data">
             <!-- Editor for manual text input -->
             <div id="editor"></div>
@@ -100,7 +36,7 @@
 
             <!-- File input for uploading text files -->
             <div class="form-group">
-                <label for="file_input">Upload Text File(s):</label>
+                <label for="file_input">Upload text file(s):</label>
                 <input type="file" id="file_input" name="text_files" multiple class="form-control-file" />
             </div>
 
@@ -120,22 +56,19 @@
             <button type="submit" class="btn btn-primary btn-block">Generate Document</button>
         </form>
     </div>
-    <footer>
-        © 2024 MCQ Editor. All rights reserved.
-    </footer>
 
     <script>
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/monokai");
-        editor.session.setMode("ace/mode/plain_text");
-        editor.session.setUseWrapMode(true);
-        editor.setShowPrintMargin(false);
-        editor.setShowFoldWidgets(false);
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.session.setMode("ace/mode/plain_text");
+      editor.session.setUseWrapMode(true);
+      editor.setShowPrintMargin(false);
+      editor.setShowFoldWidgets(false);
 
-        // Sync the Ace editor content with the textarea
-        document.querySelector("form").addEventListener("submit", function () {
-            document.getElementById("text_content").value = editor.getValue();
-        });
+      // Sync the Ace editor content with the textarea
+      document.querySelector("form").addEventListener("submit", function () {
+        document.getElementById("text_content").value = editor.getValue();
+      });
     </script>
 </body>
 </html>

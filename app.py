@@ -5,6 +5,35 @@ import re
 
 app = Flask(__name__)
 
+def split_text_by_pattern(lines):
+    """
+    Splits the input lines into chunks based on delimiters in the format ---FileName---.
+    Extracts the filename from the delimiter and associates it with the corresponding text block.
+    """
+    results = []
+    current_chunk = []
+    current_filename = None
+
+    for line in lines:
+        stripped_line = line.strip()
+        # Check if the line starts and ends with '---', indicating a new file
+        if stripped_line.startswith('---') and stripped_line.endswith('---'):
+            # Save the current chunk if it's not empty
+            if current_chunk:
+                results.append((current_filename, current_chunk))
+                current_chunk = []
+            # Extract filename from the delimiter
+            current_filename = stripped_line.strip('-')
+        else:
+            # Add line to the current chunk
+            current_chunk.append(stripped_line)
+    
+    # Add the last chunk if it exists
+    if current_chunk:
+        results.append((current_filename, current_chunk))
+    
+    return results
+
 def preprocess_mcq_lines(lines):
     """
     Preprocesses the input lines to handle questions and options.
@@ -122,50 +151,36 @@ def index():
     Handles the main index route for displaying the form and processing MCQ input.
     """
     if request.method == 'POST':
-        # Check if the user submitted text content from the editor
+        # Get the text content or uploaded files
         text_content = request.form['text_content']
         lines = text_content.split('\n') if text_content else []
 
-        # Check if the user uploaded one or more text files
-        text_files = request.files.getlist('text_files')
+        # Split lines into chunks with filenames
+        file_chunks = split_text_by_pattern(lines)
 
-        # Process uploaded files
-        file_text_map = {}  # Map to store file names and their text content
-        for text_file in text_files:
-            if text_file:
-                # Read the content of the uploaded file
-                file_content = text_file.read().decode('utf-8')
-                file_lines = file_content.split('\n')
-                file_name = text_file.filename
-                file_text_map[file_name] = file_lines
-
-        # If no text content was provided and no files were uploaded, show an error
-        if not lines and not file_text_map:
-            return render_template('index.html', error="Please provide text content or upload a text file.")
-
+        # Template selection
         template_size = request.form['template_size']
         template_file_path = get_template_path(template_size)
 
         if not template_file_path:
             return render_template('index.html', error="Invalid template size selected")
 
-        # If text content was provided through the editor, process it
-        if lines:
-            doc, incorrect_options_lines = convert_text_to_word(lines, template_file_path)
-            output_file_path = f"static/output.docx"
-            doc.save(output_file_path)
-
-        # If text files were uploaded, process each one and name the output after the file name
+        # Process each chunk and generate files
         file_names = []
-        for file_name, file_lines in file_text_map.items():
-            doc, incorrect_options_lines = convert_text_to_word(file_lines, template_file_path)
-            output_file_name = f"{os.path.splitext(file_name)[0]}_output.docx"
-            output_file_path = f"static/{output_file_name}"
-            doc.save(output_file_path)
-            file_names.append(output_file_name)
+        for i, (filename, chunk) in enumerate(file_chunks):
+            try:
+                doc, incorrect_options_lines = convert_text_to_word(chunk, template_file_path)
 
-        # Handle results (for both file and manual input cases)
-        return render_template('result.html', output_file="output.docx", incorrect_options_lines=incorrect_options_lines, file_names=file_names)
+                # Use specified filename or default
+                output_file_name = f"{filename or f'output_{i + 1}'}.docx"
+                output_file_path = f"static/{output_file_name}"
+                doc.save(output_file_path)
+                file_names.append(output_file_name)
+            except Exception as e:
+                return render_template('index.html', error=f"Error processing chunk {i + 1}: {str(e)}")
+
+        # Return results
+        return render_template('result.html', file_names=file_names)
 
     return render_template('index.html')
 
